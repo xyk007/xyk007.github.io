@@ -1,0 +1,385 @@
+html {
+  background: none; }
+  html.unScroll {
+    position: fixed;
+    height: 100%;
+    width: 100%; }
+
+html, body {
+  height: 100%; }
+
+body, p {
+  padding: 0;
+  margin: 0; }
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  line-height: normal;
+  background: #FFF; }
+  body::-webkit-scrollbar {
+    display: none; }
+
+.cover {
+  padding: 2.1333333333rem 1.4933333333rem 1.28rem 1.4933333333rem;
+  position: absolute; }
+
+.examInfo {
+  position: relative;
+  width: 13.0133333333rem;
+  height: 7.5893924987rem;
+  background: url("../thinkReport/banner.png") no-repeat;
+  background-size: 100%;
+  margin: 0 auto 0.8533333333rem auto;
+  transition: all 0.6s; }
+  .examInfo .examInfo-top {
+    display: inline-block;
+    width: 100%;
+    text-align: center; }
+    .examInfo .examInfo-top .circle {
+      width: 1.7066666667rem;
+      height: 1.7066666667rem;
+      border-radius: 50%;
+      background: #d8eefa;
+      margin: -0.8533333333rem auto 0 auto;
+      font-size: 0.768rem;
+      color: #51bffb;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .examInfo .examInfo-top .userNameText {
+      font-size: 0.512rem;
+      margin-top: 0.2133333333rem; }
+  .examInfo .examInfo-center {
+    font-size: 0.768rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  .examInfo .examInfo-bot {
+    position: absolute;
+    color: #2a4455;
+    font-size: 0.512rem;
+    padding-left: 1.3653333333rem;
+    bottom: 1.47rem; }
+
+@keyframes hint {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.examInfo.slideUp {
+  transform: translateY(-30rem); }
+
+.letter {
+  position: relative;
+  transition: all 0.8s; }
+  .letter .letter-top, .letter .letter-bot {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .letter .letter-bot {
+    z-index: -1; }
+  .letter .letter-tip {
+    position: absolute;
+    top: 7rem;
+    left: 1.8rem;
+    width: 7.04rem;
+    animation: hint 6s cubic-bezier(0.06, 0.99, 0.6, 0.96) 2s infinite alternate-reverse; }
+  .letter .letter-btn {
+    position: absolute;
+    width: 2.3466666667rem;
+    height: 5.5466666667rem;
+    margin-left: 50%;
+    margin-top: 1.5rem;
+    transform: translateX(-50%); }
+
+.letter.slideDown {
+  transform: translateY(18rem); }
+
+.letter.slideDown-hid {
+  display: none; }
+
+.content {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s;
+  box-sizing: border-box;
+  width: 100%; }
+
+.content.show {
+  visibility: visible;
+  opacity: 1;
+  padding: 0.8533333333rem 1.024rem 0rem 1.024rem; }
+
+.my-header {
+  background: #fcfcfc;
+  padding-top: 1.1946666667rem;
+  position: relative; }
+  .my-header .header-top {
+    color: #707070;
+    display: inline-block;
+    margin-left: 1.28rem; }
+    .my-header .header-top #comprSc {
+      font-size: 1.7066666667rem; }
+    .my-header .header-top .iconText {
+      font-size: 0.512rem; }
+  .my-header .header-center {
+    position: relative; }
+    .my-header .header-center .teacher {
+      width: 2.9866666667rem;
+      position: absolute;
+      right: 1.024rem;
+      bottom: 1.024rem; }
+    .my-header .header-center #comprBarChart {
+      text-align: center;
+      width: 100%; }
+      .my-header .header-center #comprBarChart .barChart {
+        text-align: left;
+        margin-left: 1.024rem; }
+  .my-header .header-bot {
+    height: 1.28rem;
+    background: #5f5f64;
+    border-radius: 0 0 0.3413333333rem 0.3413333333rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .my-header .header-bot .header-bot-btn {
+      width: 50%;
+      background: #ceeaf9;
+      border-radius: 0.256rem;
+      border-bottom: 0.0853333333rem solid #3d92ce;
+      font-size: 0.512rem;
+      color: #565656;
+      padding: 0.0853333333rem 0;
+      text-align: center; }
+
+.bar {
+  width: 0.5546666667rem;
+  display: inline-block;
+  margin-left: 0.2133333333rem;
+  border-radius: 0.1706666667rem;
+  background: #e9edf4; }
+  .bar .tipImg {
+    width: 0.6826666667rem;
+    display: block;
+    margin-left: 50%;
+    transform: translate(-50%, -110%); }
+
+.bar.barBgColor {
+  background: #99afcc; }
+
+.showText {
+  font-size: 0.512rem;
+  color: #5f5f64;
+  margin-top: 0.128rem;
+  margin-bottom: 0.3413333333rem; }
+
+.barChart-name {
+  font-size: 0.512rem;
+  font-weight: bold;
+  color: #707070;
+  transform: translateY(0.64rem); }
+
+.content-body {
+  height: 68vh;
+  margin-top: 1.0666666667rem;
+  box-sizing: border-box;
+  position: relative; }
+
+.swiper-box {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow: scroll; }
+  .swiper-box.unMove {
+    overflow: hidden; }
+  .swiper-box::-webkit-scrollbar {
+    display: none; }
+  .swiper-box img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 0; }
+  .swiper-box .slide1 {
+    /* transform: translate3d(0,0,-80px); */
+    transform: translate3d(0, 0, -5px); }
+  .swiper-box .slide2 {
+    /* transform: translate3d(0,0,-60px); */
+    transform: translate3d(0, 0, -4px);
+    margin-top: -10.6666666667rem; }
+  .swiper-box .slide3 {
+    /* transform: translate3d(0,0,-40px); */
+    transform: translate3d(0, 0, -3px);
+    margin-top: -10.6666666667rem; }
+  .swiper-box .slide4 {
+    /* transform: translate3d(0,0,-20px); */
+    transform: translate3d(0, 0, -2px);
+    margin-top: -10.6666666667rem; }
+  .swiper-box .slide5 {
+    transform: translate3d(0, 0, -1px);
+    margin-top: -5.666667rem; }
+
+.footer {
+  width: 106%;
+  margin-left: -3%;
+  position: absolute; }
+
+.footer-aft {
+  top: 57%;
+  z-index: -1; }
+
+.footer-pre {
+  z-index: 999;
+  top: 76%; }
+
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(143, 143, 143, 0.58);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; }
+  .modal .modal-item {
+    box-sizing: border-box;
+    padding: 0 0.6826666667rem 0.4266666667rem 0.6826666667rem;
+    width: 85%;
+    position: absolute;
+    background: #fff;
+    top: 5%;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 0.4266666667rem; }
+    .modal .modal-item .item-header {
+      color: #707070; }
+      .modal .modal-item .item-header .title {
+        font-size: 0.6826666667rem;
+        padding: 1.024rem 0;
+        text-align: center; }
+      .modal .modal-item .item-header .iconfont {
+        font-size: 1.28rem;
+        position: absolute;
+        top: 0.4266666667rem;
+        right: 0.4266666667rem; }
+    .modal .modal-item .item-body {
+      background: #f5f5f5;
+      padding-bottom: 0.3413333333rem;
+      overflow: auto;
+      height: 83%; }
+      .modal .modal-item .item-body::-webkit-scrollbar {
+        display: none; }
+  .modal .core #coreChart {
+    margin: 0 auto;
+    width: 11.9466666667rem;
+    height: 8.5333333333rem; }
+  .modal .core .tipInfo {
+    line-height: 0.6826666667rem;
+    font-size: 0.4266666667rem;
+    color: #707070;
+    padding: 0 0.2133333333rem;
+    margin-top: 0.4266666667rem; }
+    .modal .core .tipInfo .tipTitle {
+      font-weight: bold;
+      color: #000; }
+  .modal .coreBar .charBox {
+    padding: 0 0.2133333333rem;
+    border-bottom: 0.0853333333rem solid #ececec;
+    margin-bottom: 0.3413333333rem; }
+  .modal .coreBar .item-body {
+    background: #fff; }
+    .modal .coreBar .item-body .barChart {
+      text-align: right; }
+    .modal .coreBar .item-body .showText {
+      text-align: center;
+      margin-top: 0;
+      font-size: 0.4266666667rem; }
+  .modal .test #testTable {
+    margin-top: 0.256rem;
+    margin-bottom: 1.28rem; }
+    .modal .test #testTable td .iconfont {
+      font-size: 0.5973333333rem; }
+  .modal .test .testChart {
+    margin: 0 auto;
+    width: 11.9466666667rem;
+    height: 6.4rem; }
+  .modal .diff .botImg {
+    width: 7.5093333333rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .modal .diff .item-body {
+    padding: 0 0.256rem;
+    color: #707070;
+    background: #fff;
+    height: 65%; }
+    .modal .diff .item-body .diffBox:not(:first-child) {
+      margin-top: 1.3653333333rem; }
+    .modal .diff .item-body .diffTitle {
+      font-size: 0.6826666667rem;
+      font-weight: bold;
+      margin-bottom: 0.3413333333rem; }
+      .modal .diff .item-body .diffTitle .iconfont {
+        font-size: 0.512rem;
+        color: #FFE57A;
+        margin: 0.0853333333rem; }
+      .modal .diff .item-body .diffTitle .iconfont1 {
+        font-size: 0.5973333333rem; }
+    .modal .diff .item-body .diffBar {
+      font-size: 0.512rem; }
+      .modal .diff .item-body .diffBar .accuracyBar {
+        margin: 0.1706666667rem 0; }
+      .modal .diff .item-body .diffBar .aveAccuracyBar {
+        margin-bottom: 0.1706666667rem; }
+      .modal .diff .item-body .diffBar .accuracyBar, .modal .diff .item-body .diffBar .aveAccuracyBar {
+        background: #d0d8e8;
+        height: 0.5973333333rem;
+        border-radius: 0.3413333333rem; }
+      .modal .diff .item-body .diffBar .accuracyValue {
+        background: #FFE57A;
+        height: 100%;
+        border-radius: 0.3413333333rem; }
+      .modal .diff .item-body .diffBar .aveAccuracyValue {
+        background: #80B3B3;
+        height: 100%;
+        border-radius: 0.3413333333rem; }
+  .modal .compEva .compEvaText {
+    background: #FFF;
+    font-size: 0.5973333333rem;
+    color: #707070;
+    line-height: 1.024rem;
+    white-space: pre-line;
+    padding: 0 0.1706666667rem; }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 97%;
+  margin: 1.024rem auto 0 auto; }
+
+td {
+  font-size: 0.4266666667rem;
+  border: 0.0426666667rem solid #fff;
+  text-align: center;
+  padding: 0.2986666667rem 0;
+  white-space: normal;
+  vertical-align: middle;
+  line-height: 0.5973333333rem; }
+
+tr:nth-child(2n) {
+  background: #d0d8e8; }
+
+tr:nth-child(2n+1) {
+  background: #e9edf4; }
+
+table .tHeader {
+  background: #99afcc;
+  color: #fff; }
+
+/*# sourceMappingURL=thinkReport.css.map */

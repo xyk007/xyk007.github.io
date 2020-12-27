@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="unScroll">
+<head>
+    <meta charset="UTF-8">
+    <title>测评报告</title>
+    <!-- <link type="text/css" rel="stylesheet"  href="iconfots/iconfont.css"> -->
+    <link rel="stylesheet" href="css/thinkReport.css">
+    <script type="text/javascript" src="js/viewport.js"></script>
+    <!-- <script type="text/javascript" src="lib/echart/echarts.js"></script> -->
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/thinkReport.js"></script>
+    <!--<script type="text/javascript" src="js/pagejs/thinkReport/thinkReportView.js"></script>-->
+</head>
+<body>
+<!--封页-->
+<div class="cover">
+    <div class="examInfo">
+        <!--<img class="examInfoBg" src="thinkReport/banner.png" alt="bg">-->
+        <div class="examInfo-top">
+            <div class="circle">张</div>
+            <p class="userNameText"><span id="userName">张三</span>小朋友</p>
+        </div>
+        <div class="examInfo-center" id="examTitle">幼升小测评报告</div>
+        <div class="examInfo-bot">测评日期：<span class="dateText">2020/10/12</span></div>
+    </div>
+    <div class="letter">
+        <img class="letter-top" src="thinkReport/on1.png">
+        <img class="letter-bot" src="thinkReport/on2.png">
+        <img class="letter-tip" src="thinkReport/letterTip.png" alt="提示">
+        <div class="letter-btn"></div>
+    </div>
+
+</div>
+
+<div class="content">
+    <!--综合排名-->
+    <div class="my-header">
+        <div class="header-top">
+            <div id="comprSc"></div>
+            <div class="iconText">测评得分</div>
+        </div>
+        <div class="header-center">
+            <div class="" id="comprBarChart">
+            </div>
+            <img class="teacher" src="thinkReport/person.png">
+        </div>
+        <div class="header-bot">
+            <div class="header-bot-btn backCover">返回封面</div>
+        </div>
+
+
+    </div>
+    <div class="content-body">
+        <div class="swiper-box" id="swiper-box">
+            <div class="slide slide1">
+                <img src="thinkReport/tab1.png" alt="">
+            </div>
+            <div class="slide slide2">
+                <img src="thinkReport/tab2.png" alt="">
+            </div>
+            <div class="slide slide3">
+                <img src="thinkReport/tab3.png" alt="">
+            </div>
+            <div class="slide slide4">
+                <img src="thinkReport/tab4-1.png" alt="">
+            </div>
+            <div class="slide slide5">
+                <img src="thinkReport/0000.png" alt="">
+            </div>
+        </div>
+        <img class="footer footer-aft" src="thinkReport/on3.png" alt="">
+        <img class="footer footer-pre" src="thinkReport/on2-1.png" alt="">
+        <!--<img src="" alt="">-->
+    </div>
+</div>
+<div class="modal">
+    <!--核心能力得分情况-->
+    <div class="modal-item core">
+        <div class="item-header">
+            <div class="title">核心能力得分情况</div>
+            <span class="iconfont modal-close">&#xe65d;</span>
+        </div>
+        <div class="item-body">
+            <!--雷达图-->
+            <div class="core-top" id="coreChart"></div>
+            <!--表格-->
+            <table class="core-bot" id="coreTable">
+                <tr class="tHeader">
+                    <td style="width: 30%">核心能力名称</td>
+                    <td style="width: 15%">得分</td>
+                    <td style="width: 20%">平均分</td>
+                    <td style="width: 30%">评估</td>
+                </tr>
+            </table>
+            <div class="tipInfo">
+                <p class="tipTitle">评价标准:</p>
+                <div class="tipContent">
+                    <p>平均水平：在平均分的10%误差范围内</p>
+                    <p>超出平均水平：超出50%以里</p>
+                    <p>较大幅度超出平均水平：超过达到50%</p>
+                    <p>低于平均水平：低幅在50%以里</p>
+                    <p>较大幅度低于平均水平：低幅达到50%</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--核心能力排名-->
+    <div class="modal-item coreBar">
+        <div class="item-header">
+            <div class="title">核心能力排名</div>
+            <span class="iconfont modal-close">&#xe65d;</span>
+        </div>
+        <div class="item-body">
+            <div class="coreBarChart" id="coreBarChart" style="display: block">
+        </div>
+    </div>
+    </div>
+    <!--试题得分情况-->
+    <div class="modal-item test">
+        <div class="item-header">
+            <div class="title">试题得分情况</div>
+            <span class="iconfont modal-close">&#xe65d;</span>
+        </div>
+        <div class="item-body">
+            <table class="testTable" id="testTable">
+                <tr class="tHeader">
+                    <td style="width: 15%">题号</td>
+                    <td style="width: 12%">对错</td>
+                    <td style="width: 25%">平均正确率</td>
+                    <td style="width: 24%">难度系数</td>
+                    <td style="width: 30%">能力</td>
+                </tr>
+            </table>
+            <div class="testChart"></div>
+        </div>
+    </div>
+    <!--试题难度适应状况-->
+    <div class="modal-item diff">
+        <div class="item-header">
+            <div class="title">试题难度适应状况</div>
+            <span class="iconfont modal-close">&#xe65d;</span>
+        </div>
+        <div class="item-body difficulty">
+        </div>
+        <img class="botImg" src="thinkReport/diffBot.png" alt="">
+    </div>
+    <div class="modal-item compEva">
+        <div class="item-header">
+            <div class="title">综合评价</div>
+            <span class="iconfont modal-close">&#xe65d;</span>
+        </div>
+        <div class="item-body compEvaText">撒旦发射点阀手动阀士大夫是。
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是
+
+            撒旦发射点阀手动阀士大夫是。
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是
+
+            撒旦发射点阀手动阀士大夫是。
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是
+
+            撒旦发射点阀手动阀士大夫是。
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是
+
+            撒旦发射点阀手动阀士大夫是。
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是撒旦发射点阀手动阀士大夫是
+            撒旦发射点阀手动阀士大夫是
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="content" style="display: none;">-->
+    <!--&lt;!&ndash;综合排名&ndash;&gt;-->
+    <!--<div class="content-item">-->
+        <!--<div class="itemName">01 综合排名</div>-->
+        <!--<div class="itemBody alignCenter" id="comprBarChart">-->
+            <!--<div class="comprTop comprTop1">-->
+                <!--<div id="comprSc">80</div>-->
+                <!--<div class="iconText">测评得分</div>-->
+            <!--</div>-->
+            <!--<div class="comprTop comprTop2">-->
+                <!--<div id="comprText">仍需努力</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;核心能力得分情况分析&ndash;&gt;-->
+    <!--<div class="content-item core">-->
+        <!--<div class="itemName">02 核心能力得分情况分析</div>-->
+        <!--<div class="itemBody">-->
+            <!--雷达图-->
+            <!--<div class="core-top" id="coreChart">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;表格/信息&ndash;&gt;-->
+            <!--<div class="core-bot">-->
+                <!--<table id="coreTable">-->
+                    <!--<tr class="tHeader">-->
+                        <!--<td style="width: 40%">核心能力名称</td>-->
+                        <!--<td style="width: 10%">得分</td>-->
+                        <!--<td style="width: 20%">平均分</td>-->
+                        <!--<td style="width: 30%">评估</td>-->
+                    <!--</tr>-->
+                    <!--<tr>
+                        <td>整理把握能力</td>
+                        <td>80</td>
+                        <td>80</td>
+                        <td>平均水平平均水平平均水平</td>
+                    </tr>-->
+                <!--</table>-->
+                <!--<div class="tipInfo">-->
+                    <!--<p class="tipTitle">评价标准:</p>-->
+                    <!--<p>平均水平：在平均分的10%误差范围内</p>-->
+                    <!--<p>超出平均水平：超出50%以里</p>-->
+                    <!--<p>较大幅度超出平均水平：超过达到50%</p>-->
+                    <!--<p>低于平均水平：低幅在50%以里</p>-->
+                    <!--<p>较大幅度低于平均水平：低幅达到50%</p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;核心能力排名&ndash;&gt;-->
+    <!--<div class="content-item coreBar">-->
+        <!--<div class="itemName">03 核心能力排名</div>-->
+        <!--<div class="itemBody alignCenter" id="coreBarChart" style="display: block">-->
+            <!--<div class=" mb50">-->
+                <!--<div class="barChart" id="core_judge">-->
+                <!--</div>-->
+                <!--<div class="showText">-->
+                <!--在参与测试的同学中， <br>你击败了-->
+                <!--<span id="core_judge_sc">78%</span> 的同学-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class=" mb50">-->
+                <!--<div class="barChart" id="core_space">-->
+                <!--</div>-->
+                <!--<div class="showText">-->
+                <!--在参与测试的同学中， <br>你击败了-->
+                <!--<span id="core_space_sc">78%</span> 的同学-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="">-->
+                <!--<div class="barChart" id="core_calc">-->
+                <!--</div>-->
+                <!--<div class="showText">-->
+                <!--在参与测试的同学中， <br>你击败了-->
+                <!--<span id="core_calc_sc">78%</span> 的同学-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;试题得分情况&ndash;&gt;-->
+    <!--<div class="content-item">-->
+        <!--<div class="itemName">04 试题得分情况</div>-->
+        <!--<div class="itemBody">-->
+            <!--&lt;!&ndash;表格/信息&ndash;&gt;-->
+            <!--<div class="tableBox flex">-->
+                <!--<table id="testTable">-->
+                    <!--<tr class="tHeader">-->
+                        <!--<td style="width: 15%">题号</td>-->
+                        <!--<td style="width: 15%">对错</td>-->
+                        <!--<td style="width: 20%">平均正确率</td>-->
+                        <!--<td style="width: 15%">难度系数</td>-->
+                        <!--<td style="width: 30%">能力</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</div>-->
+            <!--<div class="testChart"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;试题难度适应状况&ndash;&gt;-->
+    <!--<div class="content-item">-->
+        <!--<div class="itemName">05 试题难度适应状况</div>-->
+        <!--<div class="itemBody diff">-->
+            <!--&lt;!&ndash;<div class="itemBox itemBox4">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="itemBox-top">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="itemBox-child">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span>4级难度</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="itemBox-bot">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span>正确率 80%</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;<span>平均正确率 70%</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;试题得分情况&ndash;&gt;-->
+    <!--<div class="content-item">-->
+        <!--<div class="itemName">06 综合评价</div>-->
+        <!--<div class="itemBody compEva">-->
+            <!--<p id="compEva"></p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>
